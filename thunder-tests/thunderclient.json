@@ -54,5 +54,151 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "c3f7488a-b8f4-4ff1-b26a-8c9f6c8af1e8",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Get species2",
+    "url": "localhost:8001/b/species",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-16T19:37:53.059Z",
+    "modified": "2023-04-16T19:38:02.952Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b6eb12a2-ae7b-41d7-8a4c-ad55b23648ad",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Get type",
+    "url": "localhost:8001/b/type",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-16T19:38:45.900Z",
+    "modified": "2023-04-16T19:38:54.905Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "33f1c215-a88a-460b-990a-fa8738b3ef9d",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Get type2",
+    "url": "localhost:8001/b/type",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-16T19:39:01.400Z",
+    "modified": "2023-04-16T19:39:09.919Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "37f2fc8b-4377-4db4-8678-fb73dadeea0a",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Get habit",
+    "url": "localhost:8001/b/habit",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-04-16T19:39:22.109Z",
+    "modified": "2023-04-16T19:39:31.842Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "bdc233b6-0b9e-4e29-9cd7-55aefacc77ae",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Get habit2",
+    "url": "localhost:8001/b/habit",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-04-16T19:39:40.317Z",
+    "modified": "2023-04-16T19:40:06.457Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d88a5496-6de7-4057-9ee8-d4c8f29ebc9a",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Post borrower_id",
+    "url": "localhost:8001/b/borrower_id",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-04-16T19:40:53.127Z",
+    "modified": "2023-04-16T19:45:14.121Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"species_id\": 1,\n\"type_id\": 2,\n\"habit_id\": 3,\n\"borrower_id\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ca51f62e-fd70-47ef-a1d3-8480c8124dd3",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Post borrower_id2",
+    "url": "localhost:8001/b/borrower_id",
+    "method": "POST",
+    "sortNum": 90000,
+    "created": "2023-04-16T19:45:27.648Z",
+    "modified": "2023-04-16T19:45:54.655Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"species_id\": 2,\n\"type_id\": 3,\n\"habit_id\": 4,\n\"borrower_id\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "01450b1e-39c2-4d06-8aac-9f7b52c72177",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Put borrower_id",
+    "url": "localhost:8001/b/borrower_idCopy",
+    "method": "PUT",
+    "sortNum": 110000,
+    "created": "2023-04-16T19:47:17.551Z",
+    "modified": "2023-04-16T19:48:39.632Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"species_idCopy\": 1,\n\"type_idCopy\": 2,\n\"habit_idCopy\": 10000,\n\"borrower_idCopy\": 5\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c3b25eaf-d1ac-4b6c-ae00-d839e85535c6",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Put borrower_id2",
+    "url": "localhost:8001/b/borrower_idCopy",
+    "method": "PUT",
+    "sortNum": 120000,
+    "created": "2023-04-16T19:48:51.384Z",
+    "modified": "2023-04-16T19:49:27.058Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"species_idCopy\": 1,\n\"type_idCopy\": 2,\n\"habit_idCopy\": 10001,\n\"borrower_idCopy\": 12\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
