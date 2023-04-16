@@ -5,39 +5,90 @@ from src import db
 
 borrowers = Blueprint('borrowers', __name__)
 
+# Borrower Preference
+
 # Get all species from the DB
 @borrowers.route("/species", methods=['GET'])
 def get_species():
+    query = '''
+    SELECT DISTINCT species_id AS label, species_id AS value
+    FROM BorrowerPetPreferences
+    WHERE species_id is NOT NULL
+    ORDER BY species_id
+    '''
     cursor = db.get_db().cursor()
-    cursor.execute('''select species_id from BorrowerPetPreferences''')
+    cursor.execute(query)
+
+    column_headers = [x[0] for x in cursor.description]
+
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
-        json_data.append(row)
+        json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
 
 # Get all type from the DB
 @borrowers.route("/type", methods=['GET'])
 def get_type():
+    query = '''
+    SELECT DISTINCT type_id AS label, type_id AS value
+    FROM BorrowerPetPreferences
+    WHERE type_id is NOT NULL
+    ORDER BY type_id
+    '''
     cursor = db.get_db().cursor()
-    cursor.execute('''select type_id from BorrowerPetPreferences''')
+    cursor.execute(query)
+    json_data = []
+    column_headers = [x[0] for x in cursor.description]
+
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
-        json_data.append(row)
+        json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
 
 # Get all habit from the DB
 @borrowers.route("/habit", methods=['GET'])
 def get_habit():
+    query = '''
+    SELECT DISTINCT habit_id AS label, habit_id AS value
+    FROM BorrowerPetPreferences
+    WHERE habit_id is NOT NULL
+    ORDER BY habit_id
+    '''
     cursor = db.get_db().cursor()
-    cursor.execute('''select type_id from BorrowerPetPreferences''')
+    cursor.execute(query)
+    json_data = []
+    column_headers = [x[0] for x in cursor.description]
+
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
-        json_data.append(row)
+        json_data.append(dict(zip(column_headers, row)))
+
+
+    return jsonify(json_data)
+
+# Get all borrower from the DB
+@borrowers.route("/borrower_idGet", methods=['GET'])
+def get_idGet():
+    query = '''
+    SELECT DISTINCT borrower_id AS label, borrower_id AS value
+    FROM BorrowerPetPreferences
+    WHERE borrower_id is NOT NULL
+    ORDER BY borrower_id
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    json_data = []
+    column_headers = [x[0] for x in cursor.description]
+
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
 
@@ -90,26 +141,31 @@ def add_new_borroweridCopy():
 
 
 
+# Borrower Review
 
 @borrowers.route('/pet', methods=['GET'])
 def get_pet():
+    query = '''
+    SELECT DISTINCT pet_id AS label, pet_id AS value
+    FROM Pet
+    WHERE pet_id is NOT NULL
+    ORDER BY pet_id
+    '''
     # get a cursor object from the database
     cursor = db.get_db().cursor()
 
     # use cursor to query the database for a list of products
-    cursor.execute('SELECT pet_id FROM Pet;')
+    cursor.execute(query)
 
     # create an empty dictionary object to use in
     # putting column headers together with data
     json_data = []
+    column_headers = [x[0] for x in cursor.description]
 
-    # fetch all the data from the cursor
+    json_data = []
     theData = cursor.fetchall()
-    # for each of the rows, zip the data elements together with
-    # the column headers.
     for row in theData:
-        json_data.append(row)
-
+        json_data.append(dict(zip(column_headers, row)))
     return jsonify(json_data)
 
 @borrowers.route('/review', methods=['POST'])
@@ -138,23 +194,29 @@ def add_new_review():
 
 @borrowers.route('/borrower', methods=['GET'])
 def get_borrower_from_review():
+    query = '''
+    SELECT DISTINCT borrower_id AS label, borrower_id AS value
+    FROM BorrowerReview
+    WHERE borrower_id is NOT NULL
+    ORDER BY borrower_id
+    '''
     # get a cursor object from the database
     cursor = db.get_db().cursor()
 
-    # use cursor to query the database for a list of borrower ids
-    cursor.execute('SELECT borrower_id FROM BorrowerReview;')
+    # use cursor to query the database for a list of products
+    cursor.execute(query)
 
-    # create an empty object
+    # create an empty dictionary object to use in
+    # putting column headers together with data
     json_data = []
+    column_headers = [x[0] for x in cursor.description]
 
-    # fetch all the data from the cursor
+    json_data = []
     theData = cursor.fetchall()
-    # for each of the rows, zip the data elements together with
-    # the column headers.
     for row in theData:
-        json_data.append(row)
-
+        json_data.append(dict(zip(column_headers, row)))
     return jsonify(json_data)
+
 
 
 @borrowers.route('/borrower_review', methods=['DELETE'])

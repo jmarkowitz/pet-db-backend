@@ -290,5 +290,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "2ed9d4a2-e773-45e0-a375-20f0988818ee",
+    "colId": "cf61bc50-9d7f-4cf5-868b-694b0d5b41dc",
+    "containerId": "",
+    "name": "Get borrower_id",
+    "url": "localhost:8001/b/borrower_idGet",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-04-16T20:46:08.660Z",
+    "modified": "2023-04-16T20:46:29.348Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
