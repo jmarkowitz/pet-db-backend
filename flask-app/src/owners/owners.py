@@ -50,12 +50,12 @@ def add_new_event():
 def update_event():
     the_data = request.json
     current_app.logger.info(the_data)
-    description = the_data['description']
-    event_date = the_data['event_date']
-    city = the_data['city']
-    state = the_data['state']
-    zip_code = the_data['zip']
-    event_id = the_data['event_id']
+    description = the_data['description_update']
+    event_date = the_data['event_date_update']
+    city = the_data['city_update']
+    state = the_data['state_update']
+    zip_code = the_data['zip_update']
+    event_id = the_data['event_id_update']
 
     query = 'UPDATE Event SET description = %s, event_date = %s, city = %s, state = %s, zip = %s WHERE event_id = %s'
 

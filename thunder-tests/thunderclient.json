@@ -88,12 +88,12 @@
     "method": "PUT",
     "sortNum": 60000,
     "created": "2023-04-18T00:51:53.753Z",
-    "modified": "2023-04-18T00:51:53.753Z",
+    "modified": "2023-04-18T02:52:00.431Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"description\": \"walk in the park\",\n  \"event_date\": \"2022-01-25\",\n  \"city\": \"cape cod\",\n  \"state\": \"MA\",\n  \"zip\": \"038201\",\n  \"event_id\": 121\n}",
+      "raw": "{\n  \"description_update\": \"walk in the park\",\n  \"event_date_update\": \"2022-01-25\",\n  \"city_update\": \"cape cod\",\n  \"state_update\": \"MA\",\n  \"zip_update\": \"038201\",\n  \"event_id_update\": 121\n}",
       "form": []
     },
     "tests": []
@@ -107,12 +107,12 @@
     "method": "PUT",
     "sortNum": 70000,
     "created": "2023-04-18T00:51:58.959Z",
-    "modified": "2023-04-18T00:51:58.959Z",
+    "modified": "2023-04-18T02:51:57.619Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"description\": \"dog party\",\n  \"event_date\": \"2022-11-25\",\n  \"city\": \"cambridge\",\n  \"state\": \"MA\",\n  \"zip\": \"02128\",\n  \"event_id\": 111\n}",
+      "raw": "{\n  \"description_update\": \"dog party\",\n  \"event_date_update\": \"2022-11-25\",\n  \"city_update\": \"cambridge\",\n  \"state_update\": \"MA\",\n  \"zip_update\": \"02128\",\n  \"event_id_update\": 111\n}",
       "form": []
     },
     "tests": []
