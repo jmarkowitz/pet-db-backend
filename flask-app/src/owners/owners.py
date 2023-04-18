@@ -7,12 +7,18 @@ owners = Blueprint('owners', __name__)
 
 @owners.route("/events", methods=['GET'])
 def get_events():
+    query = '''
+    SELECT event_id as ID, description as Description, event_date as Date, city as City
+    FROM Event
+    '''
     cursor = db.get_db().cursor()
-    cursor.execute('''select event_id from Event''')
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
-        json_data.append(row)
+        json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
 
