@@ -5,6 +5,25 @@ from src import db
 owners = Blueprint('owners', __name__)
 
 
+@owners.route('/petTypes', methods=['GET'])
+def get_pet_types():
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT species_name FROM PetSpecies')
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+    return jsonify(json_data)
+
+@owners.route('/petSpecificBreeds', methods=['GET'])
+def get_pet_breeds(speciesID):
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT breed_name FROM PetBreeds WHERE species_id = %s', (speciesID,))
+
+
+
+
 @owners.route("/events", methods=['GET'])
 def get_events():
     cursor = db.get_db().cursor()
@@ -50,12 +69,14 @@ def add_new_event():
 def update_event():
     the_data = request.json
     current_app.logger.info(the_data)
+
     description = the_data['description_update']
     event_date = the_data['event_date_update']
     city = the_data['city_update']
     state = the_data['state_update']
     zip_code = the_data['zip_update']
     event_id = the_data['event_id_update']
+
 
     query = 'UPDATE Event SET description = %s, event_date = %s, city = %s, state = %s, zip = %s WHERE event_id = %s'
 
@@ -83,5 +104,5 @@ def delete_event():
     # commit the transaction to make the changes permanent
     db.get_db().commit()
 
-    # return a success message
     return "Success!"
+
