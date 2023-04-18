@@ -899,7 +899,7 @@ INSERT INTO BorrowerBorrow(borrower_id,pet_id) VALUES (1,50);
 
 
 
-# PetServiceProviders
+-- PetServiceProviders
 INSERT INTO PetServiceProviders(user_id,city,state,zip) VALUES (1,'Saint Joseph','Missouri',64504);
 INSERT INTO PetServiceProviders(user_id,city,state,zip) VALUES (2,'Saint Louis','Missouri',63143);
 INSERT INTO PetServiceProviders(user_id,city,state,zip) VALUES (3,'Boise','Idaho',83732);
@@ -963,7 +963,7 @@ INSERT INTO PetServiceProviders(user_id,city,state,zip) VALUES (60,'Washington',
 
 
 
-# service
+-- service
 INSERT INTO Service(user_id,service_id,type,duration_hours,service_date) VALUES (42,1,'varius nulla facilisi cras non velit nec nisi vulputate',5,'2023-02-28');
 INSERT INTO Service(user_id,service_id,type,duration_hours,service_date) VALUES (33,2,'vestibulum sed magna at nunc commodo placerat praesent blandit nam',7,'2022-05-04');
 INSERT INTO Service(user_id,service_id,type,duration_hours,service_date) VALUES (54,3,'felis donec semper sapien a',8,'2023-03-20');
@@ -1025,7 +1025,7 @@ INSERT INTO Service(user_id,service_id,type,duration_hours,service_date) VALUES 
 INSERT INTO Service(user_id,service_id,type,duration_hours,service_date) VALUES (34,59,'feugiat non pretium quis lectus suspendisse',1,'2022-07-24');
 INSERT INTO Service(user_id,service_id,type,duration_hours,service_date) VALUES (22,60,'sit amet consectetuer adipiscing elit proin interdum',8,'2022-06-02');
 
-# experience
+-- experience
 INSERT INTO Experience(psp_id,education,career,qualification,city,state,zip) VALUES (37,'Gonabad University of Medical Sciences','Senior Cost Accountant','interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus','Brooklyn','New York',11236);
 INSERT INTO Experience(psp_id,education,career,qualification,city,state,zip) VALUES (31,'La Salle Universities - International Programmes','Technical Writer','sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus','Las Vegas','Nevada',89150);
 INSERT INTO Experience(psp_id,education,career,qualification,city,state,zip) VALUES (2,'FAAP - Fundação Armando Alvares Penteado','VP Product Management','feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio','Shreveport','Louisiana',71161);
@@ -1087,7 +1087,7 @@ INSERT INTO Experience(psp_id,education,career,qualification,city,state,zip) VAL
 INSERT INTO Experience(psp_id,education,career,qualification,city,state,zip) VALUES (1,'California School of Professional Psychology - Los Angels','Information Systems Manager','blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id','Little Rock','Arkansas',72209);
 INSERT INTO Experience(psp_id,education,career,qualification,city,state,zip) VALUES (25,'University of Toronto','Programmer III','ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id','Des Moines','Iowa',50315);
 
-#provider review
+-- provider review
 INSERT INTO ProviderReview(psp_id,cust_id,rating,description) VALUES (20,25,2,'Fusce consequat. Nulla nisl. Nunc nisl.');
 INSERT INTO ProviderReview(psp_id,cust_id,rating,description) VALUES (55,29,2,'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
 INSERT INTO ProviderReview(psp_id,cust_id,rating,description) VALUES (48,42,4,'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
@@ -1150,7 +1150,7 @@ INSERT INTO ProviderReview(psp_id,cust_id,rating,description) VALUES (39,32,4,'N
 INSERT INTO ProviderReview(psp_id,cust_id,rating,description) VALUES (46,18,3,'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
 
 
-# PreferredPetSpecies
+-- PreferredPetSpecies
 INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilization) VALUES (20,13,0,18,1);
 INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilization) VALUES (23,41,1,3,1);
 INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilization) VALUES (35,34,1,25,0);
@@ -1211,3 +1211,65 @@ INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilizat
 INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilization) VALUES (25,34,0,8,1);
 INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilization) VALUES (53,39,1,5,0);
 INSERT INTO PreferredPetSpecies(service_id,species_id,vaccination,age,sterilization) VALUES (33,1,1,11,1);
+
+-- OwnerPets
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (46,1,35);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (55,2,26);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (20,3,43);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (26,4,48);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (19,5,46);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (7,6,47);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (11,7,12);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (13,8,53);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (60,9,6);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (3,10,17);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (60,11,34);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (24,12,60);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (3,13,39);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (44,14,30);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (17,15,9);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (58,16,58);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (11,17,29);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (57,18,30);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (56,19,34);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (45,20,11);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (39,21,29);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (9,22,44);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (14,23,50);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (37,24,42);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (19,25,27);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (39,26,44);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (56,27,38);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (44,28,30);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (18,29,20);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (32,30,3);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (23,31,25);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (60,32,10);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (59,33,12);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (31,34,1);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (37,35,60);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (25,36,56);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (55,37,35);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (50,38,22);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (46,39,19);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (2,40,11);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (47,41,1);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (39,42,12);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (3,43,22);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (33,44,42);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (6,45,24);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (21,46,39);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (36,47,19);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (19,48,9);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (56,49,53);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (21,50,22);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (11,51,17);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (7,52,37);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (32,53,23);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (45,54,34);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (37,55,42);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (9,56,16);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (13,57,33);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (50,58,21);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (35,59,44);
+INSERT INTO OwnerPets(user_id,pet_num,pet_id) VALUES (22,60,1);
