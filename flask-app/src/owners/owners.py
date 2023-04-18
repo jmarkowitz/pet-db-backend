@@ -4,6 +4,7 @@ from src import db
 
 owners = Blueprint('owners', __name__)
 
+
 @owners.route('/petTypes', methods=['GET'])
 def get_pet_types():
     cursor = db.get_db().cursor()
@@ -19,6 +20,7 @@ def get_pet_types():
 def get_pet_breeds(speciesID):
     cursor = db.get_db().cursor()
     cursor.execute('SELECT breed_name FROM PetBreeds WHERE species_id = %s', (speciesID,))
+
 
 
 @owners.route("/events", methods=['GET'])
@@ -100,4 +102,6 @@ def delete_event():
     db.get_db().commit()
 
     # return a success message
+
     return "Success!"
+
