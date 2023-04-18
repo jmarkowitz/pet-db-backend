@@ -5,16 +5,29 @@ from src import db
 owners = Blueprint('owners', __name__)
 
 
+@owners.route("/events", methods=['GET'])
+def get_events():
+    query = '''
+    SELECT event_id as ID, description as Description, event_date as Date, city as City
+    FROM Event
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+
 @owners.route('/petTypes', methods=['GET'])
 def get_pet_types():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT species_name FROM PetSpecies')
     column_headers = [x[0] for x in cursor.description]
+
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
+        
     return jsonify(json_data)
+
 
 @owners.route('/petSpecificBreeds', methods=['GET'])
 def get_pet_breeds(speciesID):
@@ -22,18 +35,6 @@ def get_pet_breeds(speciesID):
     cursor.execute('SELECT breed_name FROM PetBreeds WHERE species_id = %s', (speciesID,))
 
 
-
-
-@owners.route("/events", methods=['GET'])
-def get_events():
-    cursor = db.get_db().cursor()
-    cursor.execute('''select event_id from Event''')
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(row)
-
-    return jsonify(json_data)
 
 
 @owners.route("/events/new", methods=['POST'])
@@ -77,7 +78,6 @@ def update_event():
     zip_code = the_data['zip_update']
     event_id = the_data['event_id_update']
 
-
     query = 'UPDATE Event SET description = %s, event_date = %s, city = %s, state = %s, zip = %s WHERE event_id = %s'
 
 
@@ -104,5 +104,7 @@ def delete_event():
     # commit the transaction to make the changes permanent
     db.get_db().commit()
 
+
+    # return a success message
     return "Success!"
 
