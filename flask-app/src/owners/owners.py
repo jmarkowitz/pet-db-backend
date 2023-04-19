@@ -5,6 +5,82 @@ from src import db
 owners = Blueprint('owners', __name__)
 
 
+
+
+@owners.route('/petTypes', methods=['GET'])
+def get_pet_types():
+    query = 'SELECT species_name AS label, species_id AS value FROM PetSpecies'
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+
+    column_headers = [x[0] for x in cursor.description]
+
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+
+
+@owners.route('/allPets/<speciesID>', methods=['GET'])
+def get_all_pets(speciesID):
+    query = '''
+    SELECT breed_name, first_name, last_name, user_id
+FROM PetOwner
+         JOIN (SELECT pet_id, user_id, species_id, species_name, breed_name, breed_id
+               FROM OwnerPets
+                        JOIN (SELECT species_id, pet_id, species_name, breed_name, breed_id
+                              FROM Pet
+                                       JOIN (SELECT species_name, PS.species_id, breed_name, breed_id
+                                             FROM PetBreed
+                                                      JOIN PetSpecies PS on PetBreed.species_id = PS.species_id
+                                             WHERE PS.species_id = %s) as petType using (species_id)) as allPetBreeds
+                             using (pet_id)) as userPets using (user_id)
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query, speciesID)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+    return jsonify(json_data)
+
+@owners.route('/allUsers', methods=['GET'])
+def get_all_users():
+    query = '''
+    SELECT user_id as value, user_id as label
+    FROM PetOwner
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+    return jsonify(json_data)
+
+@owners.route("/addFriend", methods=['POST'])
+def add_new_friend():
+    the_data = request.json
+    current_app.logger.info(the_data)
+    userID = the_data['user_ID']
+    friendID = the_data['friend_ID']
+
+    query = 'insert into OwnerFriends (user_id, friend_user_id) values ("'
+    query += userID + '","'
+    query += friendID + '")'
+
+    current_app.logger.info(query)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
+
 @owners.route("/events", methods=['GET'])
 def get_events():
     query = '''
@@ -14,39 +90,12 @@ def get_events():
     cursor = db.get_db().cursor()
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
-
-@owners.route('/petTypes', methods=['GET'])
-def get_pet_types():
-    cursor = db.get_db().cursor()
-    cursor.execute('SELECT species_name FROM PetSpecies')
-    column_headers = [x[0] for x in cursor.description]
-
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
-        
+
     return jsonify(json_data)
-
-
-@owners.route('/petSpecificBreeds', methods=['GET'])
-def get_pet_breeds(speciesID):
-    cursor = db.get_db().cursor()
-    cursor.execute('SELECT breed_name FROM PetBreeds WHERE species_id = %s', (speciesID,))
-    return ""
-
-@owners.route('/allPets/<userID>', methods=['GET'])
-def get_all_pets(userID):
-    cursor = db.get_db().cursor()
-    cursor.execute('SELECT * FROM Pets WHERE owner_id = %s', (userID,))
-    column_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(column_headers, row)))
-    return jsonify(json_data)
-
-
 
 
 @owners.route("/events/new", methods=['POST'])

@@ -816,5 +816,85 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "14c03170-0a37-45e5-8a64-8e479ee82f52",
+    "colId": "5da4b992-afb9-4e6a-80dd-a0e3181d0f1c",
+    "containerId": "",
+    "name": "get_breeds_user_by_species50",
+    "url": "localhost:8001/o/allPets/50",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-04-19T01:38:14.123Z",
+    "modified": "2023-04-19T02:01:47.743Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "65cd7eaa-43ae-47d6-bd46-34fc12698f3b",
+    "colId": "5da4b992-afb9-4e6a-80dd-a0e3181d0f1c",
+    "containerId": "",
+    "name": "get_breeds_user_by_species21",
+    "url": "localhost:8001/o/allPets/21",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-19T02:00:24.807Z",
+    "modified": "2023-04-19T02:00:30.675Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6c14303e-e4ac-4358-97ba-3dffed44430c",
+    "colId": "5da4b992-afb9-4e6a-80dd-a0e3181d0f1c",
+    "containerId": "",
+    "name": "get_all_users",
+    "url": "localhost:8001/o/allUsers",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-04-19T02:56:05.819Z",
+    "modified": "2023-04-19T02:56:31.838Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f687e5c6-fdbd-40fa-98db-e99215a18c0a",
+    "colId": "5da4b992-afb9-4e6a-80dd-a0e3181d0f1c",
+    "containerId": "",
+    "name": "add_new_friend20",
+    "url": "localhost:8001/o/addFriend",
+    "method": "POST",
+    "sortNum": 120000,
+    "created": "2023-04-19T03:16:41.867Z",
+    "modified": "2023-04-19T03:43:25.038Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"user_ID\": \"40\",\n  \"friend_ID\": \"20\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d85657ba-6f60-43ac-a96d-8606e8fafe45",
+    "colId": "5da4b992-afb9-4e6a-80dd-a0e3181d0f1c",
+    "containerId": "",
+    "name": "add_new_friend65",
+    "url": "localhost:8001/o/addFriend",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2023-04-19T03:29:45.294Z",
+    "modified": "2023-04-19T03:43:15.384Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"user_ID\": \"40\",\n  \"friend_ID\": \"65\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
