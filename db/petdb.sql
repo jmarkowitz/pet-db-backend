@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS OwnerEvents
     event_id int,
     CONSTRAINT fk_eventID
         FOREIGN KEY (event_id) REFERENCES Event (event_id)
-            ON UPDATE CASCADE ON DELETE restrict,
+            ON UPDATE CASCADE ON DELETE cascade,
     CONSTRAINT fk_userID1
         FOREIGN KEY (user_id) REFERENCES PetOwner (user_id)
 );
