@@ -138,9 +138,6 @@ def add_new_borroweridCopy():
 
     return "Success!"
 
-
-
-
 # Borrower Review
 
 @borrowers.route('/pet', methods=['GET'])
@@ -216,8 +213,6 @@ def get_borrower_from_review():
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
     return jsonify(json_data)
-
-
 
 @borrowers.route('/borrower_review', methods=['DELETE'])
 def delete_borrower_review():
