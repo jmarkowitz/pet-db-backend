@@ -20,5 +20,10 @@ This repo contains 3 Docker containers:
 6. Start the containers with `docker compose up`.  To run in detached mode, run `docker compose up -d`. 
 
 
+## Walkthrough
+
+[Click here to watch YouTube walkthrough](https://youtu.be/csGcMOTE54E)
+
+
 
 
